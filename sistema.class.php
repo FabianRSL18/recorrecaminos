@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include('config.class.php');
 class Sistema{
     var $con;
@@ -54,12 +56,16 @@ class Sistema{
         return $data;
     }
 
-    function login($correo, $contrasena){
+    function login($correo, $contrasena) {
         $contrasena = md5($contrasena);
         $acceso = false;
+        // Validación del formato de correo electrónico
         if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start(); // Inicia la sesión si no está activa
+            }
             $this->conexion();
-            $sql = "SELECT * from usuario where correo=:correo and contrasena=:contrasena";
+            $sql = "SELECT * FROM usuario WHERE correo = :correo AND contrasena = :contrasena";
             $sql = $this->con->prepare($sql);
             $sql->bindParam(':correo', $correo, PDO::PARAM_STR);
             $sql->bindParam(':contrasena', $contrasena, PDO::PARAM_STR);
@@ -69,26 +75,35 @@ class Sistema{
                 $acceso = true;
                 $_SESSION['correo'] = $correo;
                 $_SESSION['validado'] = $acceso;
-                $roles = $this->getRol($correo);
-                $privilegios = $this->getPrivilegio($correo);
-                $_SESSION['roles'] = $roles;
-                $_SESSION['privilegios'] = $privilegios;
+                $_SESSION['roles'] = $this->getRol($correo);
+                $_SESSION['privilegios'] = $this->getPrivilegio($correo);
                 return $acceso;
             }
+        }
+        // Establecer sesión como no válida si no hay acceso
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
         $_SESSION['validado'] = false;
         return $acceso;
     }
-
-    function logout(){
-        unset($_SESSION);
+    
+    function logout() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION = [];
         session_destroy();
-        $mensaje = "Gracias por utilizar el Sistema, se ha cerrado la sesión <a href='login.php'>Presione aquí para volver a entrar<a/>";
-        $tipo = "success";
-        require_once('views/header.php');
-        $this->alert($tipo, $mensaje);
-        require_once('views/footer.php');
+        // Redirige al index
+        echo "<script>
+                window.location.href = 'index.php';
+                // Elimina cualquier parámetro adicional en la URL después de redirigir
+                history.replaceState(null, '', 'index.php');
+            </script>";
+        exit();
     }
+    
+    
 
     function checkRol($rol){
         if (isset($_SESSION['roles'])) {

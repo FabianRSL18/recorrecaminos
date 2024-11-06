@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="procesar_login.php" method="POST">
+            <form action="login.php?accion=login" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
                 <input type="email" class="form-control" id="email" name="data[correo]" required>
