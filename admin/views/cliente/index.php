@@ -1,7 +1,7 @@
-<?php require('views/header.php'); ?>
+<?php  require('views/header/header_admin.php');?>
 <h1>Clientes</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
-<a href="cliente.php?accion=crear" class="btn btn-success">Nuevo</a>
+<a href="cliente.php?accion=crear" class="btn btn-success">Nuevo Cliente</a>
 <table class="table">
     <thead>
         <tr>

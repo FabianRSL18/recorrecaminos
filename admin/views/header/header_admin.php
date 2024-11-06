@@ -31,7 +31,16 @@
                             <li><a class="dropdown-item" href="conductor.php">Conductores</a></li>
                             <li><a class="dropdown-item" href="cliente.php">Clientes</a></li>
                             <li><a class="dropdown-item" href="roles.php">Roles</a></li>
-                            <li><a class="dropdown-item" href="permisos.php">Permisos</a></li>
+                            <li><a class="dropdown-item" href="permiso.php">Permisos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Viajes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="vehiculo.php">Vehiculos</a></li>
+                            <li><a class="dropdown-item" href="reserva.php">Reservas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item me-4">

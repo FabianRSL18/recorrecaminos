@@ -1,6 +1,7 @@
 <?php
 require_once('conductor.class.php');
 $app = new Conductor(); 
+$app -> checkRol('Administrador');
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 

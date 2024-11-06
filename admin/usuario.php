@@ -4,7 +4,6 @@ include('roles.class.php');
 $appRoles = new Roles();
 $app = new Usuario();
 $app -> checkRol('Administrador');
-$app->checkRol('Administrador');
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 

@@ -1,7 +1,7 @@
-<?php require('views/header/header_administrador.php'); ?>
+<?php require('views/header/header_admin.php'); ?>
 <h1>Roles</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
-<a href="roles.php?accion=crear" class="btn btn-success">Nuevo</a>
+<a href="roles.php?accion=crear" class="btn btn-success">Nuevo Rol</a>
 <table class="table">
     <thead>
         <tr>

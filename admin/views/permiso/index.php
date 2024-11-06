@@ -1,7 +1,7 @@
-<?php require('views/header.php'); ?>
+<?php  require('views/header/header_admin.php');?>
 <h1>Permisos</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
-<a href="permiso.php?accion=crear" class="btn btn-success">Nuevo</a>
+<a href="permiso.php?accion=crear" class="btn btn-success">Nuevo Permiso</a>
 <table class="table">
     <thead>
         <tr>

@@ -1,6 +1,8 @@
 <?php
 require_once('vehiculo.class.php');
 $app = new Vehiculo();
+$app -> checkRol('Administrador');
+
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 

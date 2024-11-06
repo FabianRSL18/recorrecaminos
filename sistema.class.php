@@ -57,8 +57,9 @@ class Sistema{
     }
 
     function login($correo, $contrasena) {
-        $contrasena = md5($contrasena);
+        $contrasena = md5($contrasena); // Usar un algoritmo más seguro como password_hash en producción
         $acceso = false;
+    
         // Validación del formato de correo electrónico
         if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             if (session_status() === PHP_SESSION_NONE) {
@@ -71,13 +72,17 @@ class Sistema{
             $sql->bindParam(':contrasena', $contrasena, PDO::PARAM_STR);
             $sql->execute();
             $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
             if (isset($resultado[0])) {
                 $acceso = true;
                 $_SESSION['correo'] = $correo;
                 $_SESSION['validado'] = $acceso;
                 $_SESSION['roles'] = $this->getRol($correo);
                 $_SESSION['privilegios'] = $this->getPrivilegio($correo);
-                return $acceso;
+    
+                // Redirige al index.php
+                header("Location: index.php");
+                exit(); // Asegúrate de que el script no continúe ejecutándose
             }
         }
         // Establecer sesión como no válida si no hay acceso
@@ -87,6 +92,7 @@ class Sistema{
         $_SESSION['validado'] = false;
         return $acceso;
     }
+    
     
     function logout() {
         if (session_status() === PHP_SESSION_NONE) {
