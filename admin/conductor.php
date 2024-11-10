@@ -1,12 +1,17 @@
 <?php
 require_once('conductor.class.php');
+require_once('usuario.class.php');
+
 $app = new Conductor(); 
+$appUsuario = new Usuario();
+
 $app -> checkRol('Administrador');
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 switch ($accion) {
     case 'crear':
+        $usuarios = $appUsuario->readAll();
         include 'views/conductor/crear.php'; 
         break;
     case 'nuevo':
@@ -24,6 +29,7 @@ switch ($accion) {
         break;
     case 'actualizar':
         $conductores = $app->readOne($id); 
+        $usuarios = $appUsuario->readAll();
         include('views/conductor/crear.php'); 
         break;
     case 'modificar':

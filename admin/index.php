@@ -11,13 +11,19 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
 }
 ?>
 <div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
+<div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+</div>
+
     <div class="carousel-inner">
         <div class="carousel-item active">
+            <img src="../images/Banner.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
             <img src="../images/carrusel_1.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
@@ -44,9 +50,17 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
     <div class="card p-3">
         <div class="row g-3">
             <!-- Campo de origen -->
-            <div class="col-md-3">
-                <label for="origen" class="form-label">Origen</label>
-                <input type="text" class="form-control" id="origen" placeholder="Buscar Origen">
+            <div class="col-md-2">
+                <label for="pasajeros" class="form-label">Origen</label>
+                <select class="form-select" id="Origen">
+                    <option selected> Villagran</option>
+                    <option value="2">Cortazar</option>
+                    <option value="3">Celaya</option>
+                    <option value="3">Apaseo el grande</option>
+                    <option value="3">Apaseo el alto</option>
+                    <option value="3">Otro</option>
+
+                </select>
             </div>
 
             <!-- Botón de cambio de destinos -->
@@ -76,9 +90,13 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
             <div class="col-md-2">
                 <label for="pasajeros" class="form-label">¿Quiénes viajan?</label>
                 <select class="form-select" id="pasajeros">
-                    <option selected>1 pasajero</option>
+                    <option selected> 1 pasajero</option>
                     <option value="2">2 pasajeros</option>
-                    <option value="3">3 pasajeros</option>
+                    <option value="3">5 pasajeros</option>
+                    <option value="3">10 pasajeros</option>
+                    <option value="3">15 pasajeros</option>
+                    <option value="3">20 o más pasajeros</option>
+
                 </select>
             </div>
         </div>
@@ -91,6 +109,62 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
         </div>
     </div>
 </div>
+<section id="sobre-nosotros" class="container mt-5">
+    <div class="row text-center mb-4">
+        <div class="col-md-12">
+            <h2>Sobre Nosotros</h2>
+            <p>Conoce más acerca de Recorrecaminos, tu mejor opción en transporte privado y escolar.</p>
+        </div>
+    </div>
+
+    <!-- Misión, Visión y Valores -->
+    <div class="row">
+
+        <!-- Misión -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3><i class="fas fa-bullhorn"></i> Misión</h3> <!-- Icono para Misión -->
+                </div>
+                <div class="card-body">
+                    <p>En Recorrecaminos nos dedicamos a ofrecer servicios de transporte escolar y privado de alta calidad, asegurando la seguridad, comodidad y puntualidad de nuestros usuarios. Nuestro compromiso es brindar soluciones de movilidad eficientes para familias y empresas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h3><i class="fas fa-eye"></i> Visión</h3> <!-- Icono para Visión -->
+                </div>
+                <div class="card-body">
+                    <p>Ser la empresa líder en transporte privado y escolar en la región, reconocida por su compromiso con la seguridad, la innovación y la satisfacción de nuestros clientes. Buscamos expandir nuestra red de servicios para cubrir las necesidades de movilidad de más personas cada día.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valores -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-white">
+                    <h3><i class="fas fa-handshake"></i> Valores</h3> <!-- Icono para Valores -->
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Seguridad:</strong> La seguridad de nuestros pasajeros es nuestra prioridad.</li>
+                        <li><strong>Compromiso:</strong> Nos comprometemos a ofrecer un servicio puntual y de calidad.</li>
+                        <li><strong>Responsabilidad:</strong> Nos hacemos responsables de cada viaje y cada cliente.</li>
+                        <li><strong>Innovación:</strong> Buscamos siempre mejorar nuestros servicios y la experiencia de nuestros usuarios.</li>
+                        <li><strong>Confianza:</strong> Generamos confianza mediante la transparencia y el respeto en todo lo que hacemos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 <?php 
 require_once('views/footer.php');

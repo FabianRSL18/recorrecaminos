@@ -2,8 +2,7 @@
     <div class="container">
         <div class="row">
         <div class="col-md-3">
-            <h5>IMAGEN</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fuga dolores ipsa deleniti et...</p>
+            <img src="../../images/Logo.png" alt="logo">
         </div>
         <div class="col-md-3">
             <h5>SERVICIO AL CLIENTE</h5>
@@ -16,23 +15,21 @@
         <div class="col-md-3">
             <h5>SITIOS DE INTERÉS</h5>
             <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Hola</a></li>
-            <li><a href="#" class="text-white">Hola</a></li>
+                <li><a href="#" class="text-white"> <i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#" class="text-white"> <i class="fab fa-instagram"></i> Instagram</a></li>
             </ul>
         </div>
         <div class="col-md-3">
             <h5>CONTACTO</h5>
             <p>
-            <i class="fas fa-home"></i> Villagran <br>
-            <i class="fas fa-envelope"></i> transportes.recorrecaminos@gmail.com <br>
-            <i class="fas fa-phone"></i> 461 322 0949
+                <i class="fas fa-home"></i> Zona Centro, 38260 Villagrán, Gto. <br>
+                <i class="fas fa-envelope"></i> transportes.recorrecaminos@gmail.com <br>
+                <i class="fas fa-phone"></i> 461 322 0949
             </p>
         </div>
         </div>
         <div class="text-center py-3">
-        <p>Aviso de Privacidad - Todos los derechos reservados. Autobuses Recorrecaminos S.A de C.V 2020</p>
-        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            <p>Aviso de Privacidad - Todos los derechos reservados. Autobuses Recorrecaminos S.A de C.V 2020</p>
         </div>
     </div>
 </footer>
