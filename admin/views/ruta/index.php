@@ -6,13 +6,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Verifica si el usuario tiene el rol de 'Administrador'
 $esAdmin = isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles']);
+$esCliente = isset($_SESSION['roles']) && in_array('Cliente', $_SESSION['roles']);
 
+// Verifica el rol y carga el header correspondiente
 if ($esAdmin) {
     require_once('views/header/header_admin.php');
+} elseif ($esCliente) {
+    require_once('views/header/header_cliente.php');
 } else {
+    // Si no es ni Administrador ni Cliente, se puede cargar un header por defecto
     require_once('views/header.php');
 }
 ?>
+
 <h1>Rutas</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
 

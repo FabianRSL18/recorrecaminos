@@ -14,6 +14,11 @@
     <title>Recorrecaminos</title>
 </head>
 <body>
+    <?php
+    // Obtener el nombre de la página actual
+    $current_page = basename($_SERVER['PHP_SELF']);
+    ?>
+
     <nav class="navbar bg-primary navbar-expand-lg " data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Recorrecaminos</a>
@@ -23,31 +28,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
+                        <a class="nav-link <?php echo ($current_page == 'index.php') ? 'active' : ''; ?>" href="index.php">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle <?php echo (in_array($current_page, ['usuario.php', 'conductor.php', 'cliente.php', 'roles.php', 'permiso.php'])) ? 'active' : ''; ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Usuarios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="usuario.php">Usuario</a></li>
-                            <li><a class="dropdown-item" href="conductor.php">Conductores</a></li>
-                            <li><a class="dropdown-item" href="cliente.php">Clientes</a></li>
-                            <li><a class="dropdown-item" href="roles.php">Roles</a></li>
-                            <li><a class="dropdown-item" href="permiso.php">Permisos</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'usuario.php') ? 'active' : ''; ?>" href="usuario.php">Usuario</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'conductor.php') ? 'active' : ''; ?>" href="conductor.php">Conductores</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'cliente.php') ? 'active' : ''; ?>" href="cliente.php">Clientes</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'roles.php') ? 'active' : ''; ?>" href="roles.php">Roles</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'permiso.php') ? 'active' : ''; ?>" href="permiso.php">Permisos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle <?php echo (in_array($current_page, ['vehiculo.php', 'reserva.php'])) ? 'active' : ''; ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Viajes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="vehiculo.php">Vehiculos</a></li>
-                            <li><a class="dropdown-item" href="reserva.php">Reservas</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'vehiculo.php') ? 'active' : ''; ?>" href="vehiculo.php">Vehiculos</a></li>
+                            <li><a class="dropdown-item <?php echo ($current_page == 'reserva.php') ? 'active' : ''; ?>" href="reserva.php">Reservas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="ruta.php">Rutas Escolares</a>
+                        <a class="nav-link <?php echo ($current_page == 'ruta.php') ? 'active' : ''; ?>" href="ruta.php">Rutas Escolares</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="#">Agendar</a>

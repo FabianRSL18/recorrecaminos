@@ -1,4 +1,4 @@
-<?php require('views/header.php'); ?>
+<?php require('views/header/header_admin.php'); ?>
 <h1>Reservas</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
 <a href="reserva.php?accion=crear" class="btn btn-success">Nuevo</a>

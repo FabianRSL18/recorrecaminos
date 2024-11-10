@@ -1,8 +1,12 @@
 <?php
 require_once('reserva.class.php');
 require_once('cliente.class.php');
+
 $appcliente = new Cliente();
 $app = new Reserva();
+
+$app -> checkRol('Administrador');
+
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 

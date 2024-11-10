@@ -3,39 +3,48 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-// Verifica si el usuario tiene el rol de 'Administrador'
-if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) {
-    require_once('views/header/header_admin.php');
+
+// Verifica si el usuario tiene el rol de 'Administrador' o 'Cliente'
+if (isset($_SESSION['roles'])) {
+    if (in_array('Administrador', $_SESSION['roles'])) {
+        require_once('views/header/header_admin.php');  // Header para Administradores
+    } elseif (in_array('Cliente', $_SESSION['roles'])) {
+        require_once('views/header/header_cliente.php');  // Header para Clientes
+    } else {
+        require_once('views/header.php');  // Header por defecto
+    }
 } else {
-    require_once('views/header.php');
+    require_once('views/header.php');  // Header por defecto si no hay sesión
 }
 ?>
-<div id="carouselExampleIndicators" class="carousel slide">
-<div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-</div>
 
-    <div class="carousel-inner">
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+
+    <div class="carousel-inner" style="background-color: #808080;">
         <div class="carousel-item active">
-            <img src="../images/Banner.jpg" class="d-block w-100" alt="...">
+            <img src="../images/Banner.jpg" class="d-block w-70 mx-auto" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../images/carrusel_1.jpg" class="d-block w-100" alt="...">
+            <img src="../images/carrusel_1.jpg" class="d-block w-70 mx-auto" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../images/carrusel_2.jpg" class="d-block w-100" alt="...">
+            <img src="../images/carrusel_2.jpg" class="d-block w-70 mx-auto" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../images/carrusel_3.jpg" class="d-block w-100" alt="...">
+            <img src="../images/carrusel_3.jpg" class="d-block w-70 mx-auto" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../images/carrusel_4.jpg" class="d-block w-100" alt="...">
+            <img src="../images/carrusel_4.jpg" class="d-block w-70 mx-auto" alt="...">
         </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -45,6 +54,7 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 <div class="container mt-4">
     <!-- Barra de búsqueda -->
     <div class="card p-3">
@@ -112,8 +122,8 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
 <section id="sobre-nosotros" class="container mt-5">
     <div class="row text-center mb-4">
         <div class="col-md-12">
-            <h2>Sobre Nosotros</h2>
-            <p>Conoce más acerca de Recorrecaminos, tu mejor opción en transporte privado y escolar.</p>
+            <h1>Sobre Nosotros</h1>
+            <h5>Conoce más acerca de Recorrecaminos, tu mejor opción en transporte privado y escolar.</h5>
         </div>
     </div>
 
@@ -164,8 +174,6 @@ if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) 
 
     </div>
 </section>
-
-
 <?php 
 require_once('views/footer.php');
 ?>
