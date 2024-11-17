@@ -1,18 +1,18 @@
 <?php
 require_once('reserva.class.php');
-require_once('cliente.class.php');
+require_once('usuario.class.php');
 
-$appcliente = new Cliente();
+$appUsuario = new Usuario();
 $app = new Reserva();
 
-$app -> checkRol('Administrador');
+//$app -> checkRol('Administrador');
 
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : NULL;
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 
 switch ($accion) {
     case 'crear':
-        $clientes = $appcliente -> readAll();
+        $usuarios = $appUsuario -> readAll();
         include 'views/reserva/crear.php';
         break;
     case 'nuevo':
@@ -30,7 +30,7 @@ switch ($accion) {
         break;
     case 'actualizar':
         $reservas = $app->readOne($id);
-        $clientes = $appcliente -> readAll();
+        $usuarios = $appUsuario -> readAll();
         include('views/reserva/crear.php');
         break;
     case 'modificar':

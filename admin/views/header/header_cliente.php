@@ -34,7 +34,7 @@
                         <a class="nav-link <?php echo ($current_page == 'ruta.php') ? 'active' : ''; ?>" href="ruta.php">Rutas Escolares</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link <?php echo ($current_page == 'agendar.php') ? 'active' : ''; ?>" href="#">Agendar</a>
+                        <a class="nav-link <?php echo ($current_page == 'reserva.php') ? 'active' : ''; ?>" href="reserva.php">Agendar</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link <?php echo ($current_page == 'mis_viajes.php') ? 'active' : ''; ?>" href="#">Mis viajes</a>

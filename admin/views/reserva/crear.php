@@ -26,22 +26,34 @@
         </div>
     </div>
     <div class="row mb-3">
+        <label for="origen" class="col-sm-2 col-form-label">Origen</label>
+        <div class="col-sm-10">
+            <input type="text" name="data[origen]" class="form-control" value="<?php if (isset($reservas['origen'])): echo($reservas['origen']); endif; ?>"/>
+        </div>
+    </div>
+    <div class="row mb-3">
         <label for="destino" class="col-sm-2 col-form-label">Destino</label>
         <div class="col-sm-10">
             <input type="text" name="data[destino]" class="form-control" value="<?php if (isset($reservas['destino'])): echo($reservas['destino']); endif; ?>"/>
         </div>
     </div>
     <div class="row mb-3">
-        <label for="id_cliente" class="col-sm-2 col-form-label">Cliente</label>
-        <select name="data[id_cliente]" id="" class="form-select">
-            <?php foreach($clientes as $cliente):?>
+        <label for="pasajeros" class="col-sm-2 col-form-label">Pasajeros</label>
+        <div class="col-sm-10">
+            <input type="text" name="data[pasajeros]" class="form-control" value="<?php if (isset($reservas['pasajeros'])): echo($reservas['pasajeros']); endif; ?>"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+        <select name="data[id_usuario]" id="" class="form-select">
+            <?php foreach($usuarios as $usuario):?>
                 <?php 
                 $selected = "";
-                if($reservas['id_cliente'] == $cliente['id_cliente']){
+                if($reservas['id_usuario'] == $usuario['id_usuario']){
                     $selected = "selected";
                 }
                 ?>
-            <option value="<?php echo($cliente['id_cliente']); ?>" <?php echo($selected);?>><?php echo($cliente['nombre']); ?></option>
+            <option value="<?php echo($usuario['id_usuario']); ?>" <?php echo($selected);?>><?php echo($usuario['nombre']); ?></option>
             <?php endforeach; ?>
         </select>
         </div>
