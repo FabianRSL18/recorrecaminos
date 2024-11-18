@@ -57,7 +57,7 @@ class Sistema{
     }
 
     function login($correo, $contrasena) {
-        $contrasena = md5($contrasena); // Usar un algoritmo más seguro como password_hash en producción
+        $contrasena = md5($contrasena);
         $acceso = false;
     
         // Validación del formato de correo electrónico
@@ -80,6 +80,9 @@ class Sistema{
                 $_SESSION['roles'] = $this->getRol($correo);
                 $_SESSION['privilegios'] = $this->getPrivilegio($correo);
     
+                // Asigna el id_usuario a la sesión
+                $_SESSION['id_usuario'] = $resultado[0]['id_usuario'];
+    
                 // Redirige al index.php
                 header("Location: index.php");
                 exit(); // Asegúrate de que el script no continúe ejecutándose
@@ -91,8 +94,7 @@ class Sistema{
         }
         $_SESSION['validado'] = false;
         return $acceso;
-    }
-    
+    }    
     
     function logout() {
         if (session_status() === PHP_SESSION_NONE) {

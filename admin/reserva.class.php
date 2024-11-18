@@ -60,13 +60,26 @@ class Reserva extends Sistema{
         return $result;
     }
     function readAll(){
-        $this -> conexion();
-        $result=[];
-        $query = "SELECT reserva.*, usuario.correo FROM reserva JOIN usuario ON reserva.id_usuario = usuario.id_usuario";
-        $sql = $this -> con->prepare($query);
+        $this->conexion();
+        $result = [];
+        
+        // Verificar si el usuario es un administrador
+        if (isset($_SESSION['roles']) && in_array('Administrador', $_SESSION['roles'])) {
+            // Los administradores pueden ver todas las reservas
+            $query = "SELECT reserva.*, usuario.correo FROM reserva JOIN usuario ON reserva.id_usuario = usuario.id_usuario";
+            $sql = $this->con->prepare($query);
+        } else {
+            // Los clientes solo pueden ver sus propias reservas
+            $id_usuario = $_SESSION['id_usuario'];  // Obtener el id_usuario de la sesión
+            $query = "SELECT reserva.*, usuario.correo FROM reserva JOIN usuario ON reserva.id_usuario = usuario.id_usuario WHERE reserva.id_usuario = :id_usuario";
+            $sql = $this->con->prepare($query);
+            $sql->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);  // Filtrar por el id_usuario
+        }
+    
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+    
 }
 ?>

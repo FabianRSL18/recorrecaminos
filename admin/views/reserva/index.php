@@ -22,10 +22,7 @@ if ($esAdmin) {
 <h1>Reservas</h1>
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
 
-<!-- Botón 'Nueva Reserva' solo para administradores -->
-<?php if ($esAdmin): ?>
-    <a href="reserva.php?accion=crear" class="btn btn-success">Nueva Reserva</a>
-<?php endif; ?>
+<a href="reserva.php?accion=crear" class="btn btn-success">Nueva Reserva</a>
 
 <table class="table">
     <thead>
@@ -41,11 +38,10 @@ if ($esAdmin) {
             <th scope="col">Origen</th>
             <th scope="col">Destino</th>
             <th scope="col">Pasajeros</th>
-            <th scope="col">Cliente</th>
-            <!-- Opciones solo para administradores -->
             <?php if ($esAdmin): ?>
-                <th scope="col">Opciones</th>
+                <th scope="col">Cliente</th>
             <?php endif; ?>
+            <th scope="col">Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -56,22 +52,24 @@ if ($esAdmin) {
                 <th scope="row"><?php echo $reserva['id_reserva']; ?></th>
             <?php endif; ?>
             <td><?php echo $reserva['estado']; ?></td>
-            <td><?php echo $reserva['fecha_reserva']; ?></td>
+            <td><?php echo (new DateTime($reserva['fecha_reserva']))->format('Y-m-d'); ?></td>
             <td><?php echo $reserva['fecha_salida']; ?></td>
             <td><?php echo $reserva['fecha_regreso']; ?></td>
             <td><?php echo $reserva['origen']; ?></td>
             <td><?php echo $reserva['destino']; ?></td>
             <td><?php echo $reserva['pasajeros']; ?></td>
-            <td><?php echo $reserva['correo']; ?></td>
-            <!-- Opciones solo para administradores -->
             <?php if ($esAdmin): ?>
+                <td><?php echo $reserva['correo']; ?></td>
+            <?php endif; ?>
+            <!-- Opciones solo para administradores -->
+            
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <a href="reserva.php?accion=actualizar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-primary">Actualizar</a>
                         <a href="reserva.php?accion=eliminar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-danger">Eliminar</a>
                     </div>
                 </td>
-            <?php endif; ?>
+
         </tr>
         <?php endforeach; ?>
     </tbody>
