@@ -1,5 +1,15 @@
 <?php  require('views/header/header_admin.php');?>
-<h1>Vehículos</h1>
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Vehiculos</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Vehiculos</li>
+            </ol>    
+        </div>
+    </div>
+<!-- Header End -->
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
 <a href="vehiculo.php?accion=crear" class="btn btn-success">Nuevo</a>
 <table class="table">

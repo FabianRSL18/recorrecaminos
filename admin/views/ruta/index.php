@@ -18,8 +18,17 @@ if ($esAdmin) {
     require_once('views/header.php');
 }
 ?>
-
-<h1>Rutas</h1>
+<!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Rutas</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                <li class="breadcrumb-item active text-primary">Rutas Escolares</li>
+            </ol>    
+        </div>
+    </div>
+<!-- Header End -->
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
 
 <!-- Botón 'Nuevo' solo para administradores -->
@@ -30,7 +39,9 @@ if ($esAdmin) {
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Id</th>
+            <?php if ($esAdmin): ?>
+                <th scope="col">Id</th>
+            <?php endif; ?>
             <th scope="col">Destino</th>
             <th scope="col">Abordaje</th>
             <th scope="col">Hora de Abordaje</th>
@@ -46,7 +57,9 @@ if ($esAdmin) {
         <?php foreach ($rutas as $ruta): ?>
         <tr>
             <th scope="row"><?php echo $ruta['id_ruta']; ?></th>
-            <td><?php echo $ruta['destino']; ?></td>
+            <?php if ($esAdmin): ?>
+                <td><?php echo $ruta['destino']; ?></td>
+            <?php endif; ?>
             <td><?php echo $ruta['abordaje']; ?></td>
             <td><?php echo $ruta['hora_a']; ?></td>
             <td><?php echo $ruta['parada']; ?></td>

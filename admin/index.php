@@ -17,163 +17,155 @@ if (isset($_SESSION['roles'])) {
     require_once('views/header.php');  // Header por defecto si no hay sesión
 }
 ?>
-
-<div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    </div>
-
-    <div class="carousel-inner" style="background-color: #808080;">
-        <div class="carousel-item active">
-            <img src="../images/Banner.jpg" class="d-block w-70 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/carrusel_1.jpg" class="d-block w-70 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/carrusel_2.jpg" class="d-block w-70 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/carrusel_3.jpg" class="d-block w-70 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/carrusel_4.jpg" class="d-block w-70 mx-auto" alt="...">
-        </div>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-<div class="container mt-4">
-    <!-- Barra de búsqueda -->
-    <div class="card p-3">
-        <div class="row g-3">
-            <!-- Campo de origen -->
-            <div class="col-md-2">
-                <label for="pasajeros" class="form-label">Origen</label>
-                <select class="form-select" id="Origen">
-                    <option selected> Villagran</option>
-                    <option value="2">Cortazar</option>
-                    <option value="3">Celaya</option>
-                    <option value="3">Apaseo el grande</option>
-                    <option value="3">Apaseo el alto</option>
-                    <option value="3">Otro</option>
-
-                </select>
-            </div>
-
-            <!-- Botón de cambio de destinos -->
-            <div class="col-md-1 d-flex align-items-end">
-                <button class="btn btn-outline-primary">
-                    <i class="bi bi-arrow-left-right"></i>
-                </button>
-            </div>
-
-            <!-- Campo de destino -->
-            <div class="col-md-3">
-                <label for="destino" class="form-label">Destino</label>
-                <input type="text" class="form-control" id="destino" placeholder="Buscar Destino">
-            </div>
-
-            <!-- Selector de fecha -->
-            <div class="col-md-3">
-                <label for="fecha" class="form-label">¿Cuándo viajas?</label>
-                <div class="btn-group w-100">
-                    <button type="button" class="btn btn-outline-primary">Hoy</button>
-                    <button type="button" class="btn btn-outline-primary">Mañana</button>
-                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Elegir</button>
+    <!-- Carousel Start -->
+    <div class="header-carousel owl-carousel">
+        <div class="header-carousel-item">
+            <img src="../img/carousel-1.jpg" class="img-fluid w-100" alt="Image">
+            <div class="carousel-caption">
+                <div class="container">
+                    <div class="row gy-0 gx-5">
+                        <div class="col-lg-0 col-xl-5"></div>
+                            <div class="col-xl-7 animated fadeInLeft">
+                                <div class="text-sm-center text-md-end">
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Bienvenido a Recorrecaminos</h4>
+                                    <h1 class="display-4 text-uppercase text-white mb-4">Agenda un viaje el dia de hoy</h1>
+                                    <p class="mb-5 fs-5">Agendar tu viaje es muy sencillo desde esta pagina web solo logueate y dejanos el resto.</p>
+                                    <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                                        <h2 class="text-white me-2">Siguenos en:</h2>
+                                        <div class="d-flex justify-content-end ms-2">
+                                            <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                                            <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Selector de pasajeros -->
-            <div class="col-md-2">
-                <label for="pasajeros" class="form-label">¿Quiénes viajan?</label>
-                <select class="form-select" id="pasajeros">
-                    <option selected> 1 pasajero</option>
-                    <option value="2">2 pasajeros</option>
-                    <option value="3">5 pasajeros</option>
-                    <option value="3">10 pasajeros</option>
-                    <option value="3">15 pasajeros</option>
-                    <option value="3">20 o más pasajeros</option>
-
-                </select>
-            </div>
-        </div>
-
-        <!-- Botón de búsqueda -->
-        <div class="row mt-3">
-            <div class="col-md-12 d-flex justify-content-end">
-                <button class="btn btn-primary btn-lg">Buscar</button>
+            <div class="header-carousel-item">
+                <img src="../img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-12 animated fadeInUp">
+                                <div class="text-center">
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Con Recorrecaminos</h4>
+                                    <h1 class="display-4 text-uppercase text-white mb-4">Puedes unirte a los viajes agendados a un solo clic</h1>
+                                    <p class="mb-5 fs-5">Tenemos una cantidad de viajes agendados a diferentes lugares turisticos del pais unete a nosotros!!</p>
+                                    <div class="d-flex justify-content-center flex-shrink-0 mb-4">
+                                        <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Ver Más</a>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <h2 class="text-white me-2">Siguenos en:</h2>
+                                        <div class="d-flex justify-content-end ms-2">
+                                            <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                                            <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<section id="sobre-nosotros" class="container mt-5">
-    <div class="row text-center mb-4">
-        <div class="col-md-12">
-            <h1>Sobre Nosotros</h1>
-            <h5>Conoce más acerca de Recorrecaminos, tu mejor opción en transporte privado y escolar.</h5>
-        </div>
-    </div>
-
-    <!-- Misión, Visión y Valores -->
-    <div class="row">
-
-        <!-- Misión -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-header bg-primary text-white">
-                    <h3><i class="fas fa-bullhorn"></i> Misión</h3> <!-- Icono para Misión -->
-                </div>
-                <div class="card-body">
-                    <p>En Recorrecaminos nos dedicamos a ofrecer servicios de transporte escolar y privado de alta calidad, asegurando la seguridad, comodidad y puntualidad de nuestros usuarios. Nuestro compromiso es brindar soluciones de movilidad eficientes para familias y empresas.</p>
+    <!-- Carousel End -->
+        <!-- Sobre Nosotros inicia -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div>
+                            <h4 class="text-primary">Sobre Nosotros</h4>
+                            <h1 class="display-5 mb-4">Recorrecaminos, tu mejor opción en transporte.</h1>
+                            <p class="mb-4">Somos una empresa enfocada en llevar al destino deseado de nuestros clientes con total seguridad y en tiempo y forma, nos enfocamos en el transporte estudiantil a diversas universidades y tambien al transporte privado.
+                            </p>
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="fas fa-bullhorn fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Misión</h4>
+                                            <p>Nuestro compromiso es brindar soluciones de movilidad eficientes para familias y empresas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <div class="d-flex">
+                                        <div><i class="fas fa-eye fa-3x text-primary"></i></div>
+                                        <div class="ms-4">
+                                            <h4>Visión</h4>
+                                            <p>Ser la empresa líder en transporte privado y escolar en la región, reconocida por su compromiso con la seguridad y la satisfacción de nuestros clientes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Decrubre Más</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <i class="fas fa-handshake fa-3x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Valores</h4>
+                                            <p class="mb-0 fs-5" style="letter-spacing: 1px;">
+                                                <li><strong>Seguridad:</strong> La seguridad de es nuestra prioridad.</li>
+                                                <li><strong>Compromiso:</strong> Nos comprometemos a ofrecer un servicio puntual y de calidad.</li>
+                                                <li><strong>Responsabilidad:</strong> Nos hacemos responsables de cada viaje y cada cliente.</li>
+                                                <li><strong>Confianza:</strong> Generamos confianza mediante la transparencia y el respeto en todo lo que hacemos.</li></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="bg-primary rounded position-relative overflow-hidden">
+                            <div class="rounted-bottom">
+                                <img src="../img/about-2.jpg" class="img-fluid rounded-bottom w-100" alt="">
+                            </div>
+                            <div class="rounded-bottom">
+                                <img src="../img/about-5.jpg" class="img-fluid rounded-bottom w-100" alt="">
+                            </div> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Sobre Nosotros termina -->
 
-        <!-- Visión -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-header bg-success text-white">
-                    <h3><i class="fas fa-eye"></i> Visión</h3> <!-- Icono para Visión -->
+        <!-- Procximos Viajes inicia -->
+        <div class="container-fluid blog pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Acompañanos</h4>
+                    <h1 class="display-5 mb-4">Proximos Viajes</h1>
+                    <p class="mb-0">Estos son algunos de los proximos viajes que tenemos en las proximas fechas</p>
                 </div>
-                <div class="card-body">
-                    <p>Ser la empresa líder en transporte privado y escolar en la región, reconocida por su compromiso con la seguridad, la innovación y la satisfacción de nuestros clientes. Buscamos expandir nuestra red de servicios para cubrir las necesidades de movilidad de más personas cada día.</p>
+                <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item p-4">
+                        <div class="blog-img mb-4">
+                            <img src="../img/service-4.jpg" class="img-fluid w-100 rounded" alt="">
+                            <div class="blog-title">
+                                <a href="#" class="btn">Non-Dividend Stocks</a>
+                            </div>
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
+                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img src="../img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                            <div class="ms-3">
+                                <h5>Admin</h5>
+                                <p class="mb-0">October 9, 2025</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Valores -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-header bg-warning text-white">
-                    <h3><i class="fas fa-handshake"></i> Valores</h3> <!-- Icono para Valores -->
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li><strong>Seguridad:</strong> La seguridad de nuestros pasajeros es nuestra prioridad.</li>
-                        <li><strong>Compromiso:</strong> Nos comprometemos a ofrecer un servicio puntual y de calidad.</li>
-                        <li><strong>Responsabilidad:</strong> Nos hacemos responsables de cada viaje y cada cliente.</li>
-                        <li><strong>Innovación:</strong> Buscamos siempre mejorar nuestros servicios y la experiencia de nuestros usuarios.</li>
-                        <li><strong>Confianza:</strong> Generamos confianza mediante la transparencia y el respeto en todo lo que hacemos.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+        <!-- Blog End -->
 <?php 
 require_once('views/footer.php');
 ?>

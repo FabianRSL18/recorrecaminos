@@ -1,5 +1,16 @@
 <?php require('views/header/header_admin.php'); ?>
-<h1><?php if ($accion == "crear"): echo("Nuevo"); else: echo("Modificar"); endif; ?> Conductor</h1> 
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Conductores</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                <li class="breadcrumb-item text-primary"><a href="ruta.php">Conductores</a></li>
+                <li class="breadcrumb-item active text-primary"><?php echo ($accion == "crear") ? "Nuevo " : "Modificar "; ?> Conductor</li>
+            </ol>    
+        </div>
+    </div>
+<!-- Header End -->
 
 <form action="conductor.php?accion=<?php if ($accion == "crear"): echo('nuevo'); else: echo('modificar&id=' . $id); endif; ?>" method="post" enctype="multipart/form-data"> 
     <div class="row mb-3">

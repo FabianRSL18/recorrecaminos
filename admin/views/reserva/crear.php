@@ -20,7 +20,18 @@ if ($esAdmin) {
 }
 
 ?>
-<h1><?php echo ($accion == "crear") ? "Nueva Reserva" : "Modificar Reserva"; ?></h1>
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Reservas</h4>
+            <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                <li class="breadcrumb-item text-primary"><a href="ruta.php">Reservas</a></li>
+                <li class="breadcrumb-item active text-primary"><?php echo ($accion == "crear") ? "Nueva " : "Modificar "; ?> Reserva</li>
+            </ol>    
+        </div>
+    </div>
+<!-- Header End -->
 
 <form action="reserva.php?accion=<?php echo ($accion == "crear") ? 'nuevo' : 'modificar&id=' . $id; ?>" method="post">
     <div class="row mb-3">
