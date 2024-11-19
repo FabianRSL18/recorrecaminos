@@ -56,10 +56,10 @@ if ($esAdmin) {
     <tbody>
         <?php foreach ($rutas as $ruta): ?>
         <tr>
-            <th scope="row"><?php echo $ruta['id_ruta']; ?></th>
             <?php if ($esAdmin): ?>
-                <td><?php echo $ruta['destino']; ?></td>
+                <th scope="row"><?php echo $ruta['id_ruta']; ?></th>
             <?php endif; ?>
+            <td><?php echo $ruta['destino']; ?></td>
             <td><?php echo $ruta['abordaje']; ?></td>
             <td><?php echo $ruta['hora_a']; ?></td>
             <td><?php echo $ruta['parada']; ?></td>

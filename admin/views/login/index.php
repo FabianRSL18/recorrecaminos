@@ -1,6 +1,6 @@
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal " id="loginModal">
     <div class="modal-dialog">
-        <div class="modal-content text-light">
+        <div class="modal-content ">
         <div class="modal-header">
             <h5 class="modal-title text-center" id="loginModalLabel">Iniciar Sesión</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

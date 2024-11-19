@@ -2,13 +2,35 @@
 /** Modal **/
 #loginModal {
     z-index: 1055 !important; /* Por encima del backdrop y otros elementos */
+    position: relative; /* Asegura que esté correctamente apilado sobre el fondo */
+}
+
+#loginModal .modal-body label {
+    color: #000000; /* Color negro */
 }
 
 .modal-backdrop {
     z-index: 1040 !important;
-    pointer-events: none; /* Evita que bloquee interacciones */
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    pointer-events: none; /* Evita que bloquee interacciones con el fondo */
 }
 
+.modal-content {
+    background-color: #ffffff; /* Color de fondo del modal */
+    border-radius: 10px;       /* Bordes redondeados */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+}
+
+.modal-header .btn-close {
+    background-color: transparent;
+    border: none;
+    color: #000; /* Cambia el color del ícono */
+    opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1;
+}
 /*** Spinner Start ***/
 /*** Spinner ***/
 #spinner {
