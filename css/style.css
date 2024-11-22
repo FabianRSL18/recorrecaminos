@@ -1,10 +1,4 @@
-
 /** Modal **/
-#loginModal {
-    z-index: 1055 !important; /* Por encima del backdrop y otros elementos */
-    position: relative; /* Asegura que esté correctamente apilado sobre el fondo */
-}
-
 #loginModal .modal-body label {
     color: #000000; /* Color negro */
 }
@@ -26,10 +20,6 @@
     border: none;
     color: #000; /* Cambia el color del ícono */
     opacity: 0.8;
-}
-
-.modal-header .btn-close:hover {
-    opacity: 1;
 }
 /*** Spinner Start ***/
 /*** Spinner ***/
