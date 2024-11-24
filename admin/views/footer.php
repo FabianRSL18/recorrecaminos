@@ -6,7 +6,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
                             <a href="index.html" class="p-0">
-                                <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>Recorrecaminos</h4>
+                                <h4 class="text-white"><i class="fas fa-road me-3"></i>Recorrecaminos</h4>
                                 <!-- <img src="img/logo.png" alt="Logo"> -->
                             </a>
                             <p class="mb-4">Tambien puedes descargar nuestra aplicacion para distintas plataformas y estar al pendiente de de nuestras rutas y cualquier anuncio importante</p>
@@ -14,14 +14,14 @@
                                 <a href="#" class="bg-primary d-flex rounded align-items-center py-2 px-3 me-2">
                                     <i class="fas fa-apple-alt text-white"></i>
                                     <div class="ms-3">
-                                        <small class="text-white">Download on the</small>
+                                        <small class="text-white">Descargar en</small>
                                         <h6 class="text-white">App Store</h6>
                                     </div>
                                 </a>
                                 <a href="#" class="bg-dark d-flex rounded align-items-center py-2 px-3 ms-2">
                                     <i class="fas fa-play text-primary"></i>
                                     <div class="ms-3">
-                                        <small class="text-white">Get it on</small>
+                                        <small class="text-white">Descargar en</small>
                                         <h6 class="text-white">Google Play</h6>
                                     </div>
                                 </a>
@@ -30,24 +30,19 @@
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-2">
                         <div class="footer-item">
-                            <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Feature</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                            <h4 class="text-white mb-4">Enlaces Rapidos</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Sobre Nosotros</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Viajes</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contactanos</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item">
-                            <h4 class="text-white mb-4">Support</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Disclaimer</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Support</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Help</a>
+                            <h4 class="text-white mb-4">Soporte</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Politica y Privacidad</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Terminos y condiciones</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Soporte</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Ayuda</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
@@ -107,6 +102,12 @@
         <script src="../lib/lightbox/js/lightbox.min.js"></script>
         <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
         
+        <script>
+            function showMessage(event) {
+                event.preventDefault(); // Previene la acción por defecto del enlace
+                alert("¡Es necesario iniciar sesión o registrarse para agendar!"); // Muestra el mensaje
+            }
+        </script>
 
         <!-- Template Javascript -->
         <script src="../js/main.js"></script>

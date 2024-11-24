@@ -58,7 +58,7 @@
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.php" class="nav-item nav-link <?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Inicio</a>
                         <a href="ruta.php" class="nav-item nav-link <?php echo ($current_page == 'ruta.php') ? 'active' : ''; ?>">Rutas Escolares</a>
-                        <a href="contact.html" class="nav-item nav-link <?php echo ($current_page == 'reserva.php') ? 'active' : ''; ?>">Agendar</a>
+                        <a href="#" id="agendarLink" class="nav-item nav-link <?php echo ($current_page == 'reserva.php') ? 'active' : ''; ?>" onclick="showMessage(event)">    Agendar</a>
                     </div>
                     <div>
                         <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesion</a>

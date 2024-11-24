@@ -51,10 +51,12 @@ if ($esAdmin) {
                         <div class="d-flex align-items-center">
                             <div class="ms-3">
                                 <p class="mb-0"><?php echo $promo['fecha']; ?></p>
-                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                    <a href="promo.php?accion=actualizar&id=<?php echo $promo['id_promo']; ?>" class="btn btn-primary">Actualizar</a>
-                                    <a href="promo.php?accion=eliminar&id=<?php echo $promo['id_promo']; ?>" class="btn btn-danger">Eliminar</a>
-                                </div>
+                                <?php if ($esAdmin): ?>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <a href="promo.php?accion=actualizar&id=<?php echo $promo['id_promo']; ?>" class="btn btn-primary">Actualizar</a>
+                                        <a href="promo.php?accion=eliminar&id=<?php echo $promo['id_promo']; ?>" class="btn btn-danger">Eliminar</a>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
