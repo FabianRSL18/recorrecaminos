@@ -4,18 +4,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verifica si el usuario tiene el rol de 'Administrador' o 'Cliente'
+$headerFile = 'views/header.php'; // Header por defecto
 if (isset($_SESSION['roles'])) {
     if (in_array('Administrador', $_SESSION['roles'])) {
-        require_once('views/header/header_admin.php');  // Header para Administradores
+        $headerFile = 'views/header/header_admin.php';
     } elseif (in_array('Cliente', $_SESSION['roles'])) {
-        require_once('views/header/header_cliente.php');  // Header para Clientes
-    } else {
-        require_once('views/header.php');  // Header por defecto
+        $headerFile = 'views/header/header_cliente.php';
     }
-} else {
-    require_once('views/header.php');  // Header por defecto si no hay sesión
 }
+require_once($headerFile);
 ?>
     <!-- Carousel Start -->
     <div class="header-carousel owl-carousel">
@@ -135,36 +132,8 @@ if (isset($_SESSION['roles'])) {
         </div>
         <!-- Sobre Nosotros termina -->
 
-        <!-- Procximos Viajes inicia -->
-        <div class="container-fluid blog pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Acompañanos</h4>
-                    <h1 class="display-5 mb-4">Proximos Viajes</h1>
-                    <p class="mb-0">Estos son algunos de los proximos viajes que tenemos en las proximas fechas</p>
-                </div>
-                <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="blog-item p-4">
-                        <div class="blog-img mb-4">
-                            <img src="../img/service-4.jpg" class="img-fluid w-100 rounded" alt="">
-                            <div class="blog-title">
-                                <a href="#" class="btn">Non-Dividend Stocks</a>
-                            </div>
-                        </div>
-                        <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit error corporis accusamus labore....
-                        </p>
-                        <div class="d-flex align-items-center">
-                            <img src="../img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                            <div class="ms-3">
-                                <h5>Admin</h5>
-                                <p class="mb-0">October 9, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Proximos Viajes inicia -->
+        <?php require_once('promo.php') ?>
         <!-- Blog End -->
 <?php 
 require_once('views/footer.php');
