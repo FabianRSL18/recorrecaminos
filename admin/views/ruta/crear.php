@@ -11,38 +11,57 @@
         </div>
     </div>
 <!-- Header End -->
-<h1></h1>
-<form action="ruta.php?accion=<?php if ($accion == "crear"): echo('nuevo'); else: echo('modificar&id=' . $id); endif; ?>" method="post">
-    <div class="row mb-3">
-        <label for="destino" class="col-sm-2 col-form-label">Destino</label>
-        <div class="col-sm-10">
-            <input type="text" name="data[destino]" placeholder="Escribe aquí el destino" class="form-control" value="<?php if (isset($rutas['destino'])): echo($rutas['destino']); endif; ?>"/>
+
+<!-- Formulario Inicia -->
+<div class="m-5">
+    <form action="ruta.php?accion=<?php if ($accion == "crear"): echo('nuevo'); else: echo('modificar&id=' . $id); endif; ?>" method="post">
+        <!-- Campo Origen -->
+        <div class="row mb-3">
+            <label for="origen" class="col-sm-2 col-form-label">Origen</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[origen]" placeholder="Escribe aquí el origen" class="form-control" value="<?php if (isset($rutas['origen'])): echo($rutas['origen']); endif; ?>"/>
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <label for="abordaje" class="col-sm-2 col-form-label">Abordaje</label>
-        <div class="col-sm-10">
-            <input type="text" name="data[abordaje]" placeholder="Escribe aquí el abordaje" class="form-control" value="<?php if (isset($rutas['abordaje'])): echo($rutas['abordaje']); endif; ?>"/>
+        <!-- Campo Destino -->
+        <div class="row mb-3">
+            <label for="destino" class="col-sm-2 col-form-label">Destino</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[destino]" placeholder="Escribe aquí el destino" class="form-control" value="<?php if (isset($rutas['destino'])): echo($rutas['destino']); endif; ?>"/>
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <label for="hora_a" class="col-sm-2 col-form-label">Hora de Abordaje</label>
-        <div class="col-sm-10">
-            <input type="time" name="data[hora_a]" class="form-control" value="<?php if (isset($rutas['hora_a'])): echo($rutas['hora_a']); endif; ?>"/>
+        <!-- Campo Abordaje -->
+        <div class="row mb-3">
+            <label for="abordaje" class="col-sm-2 col-form-label">Abordaje</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[abordaje]" placeholder="Escribe aquí el abordaje" class="form-control" value="<?php if (isset($rutas['abordaje'])): echo($rutas['abordaje']); endif; ?>"/>
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <label for="parada" class="col-sm-2 col-form-label">Parada</label>
-        <div class="col-sm-10">
-            <input type="text" name="data[parada]" placeholder="Escribe aquí la parada" class="form-control" value="<?php if (isset($rutas['parada'])): echo($rutas['parada']); endif; ?>"/>
+        <!-- Campo Hora Abordaje -->
+        <div class="row mb-3">
+            <label for="hora_a" class="col-sm-2 col-form-label">Hora de Abordaje</label>
+            <div class="col-sm-10">
+                <input type="time" name="data[hora_a]" class="form-control" value="<?php if (isset($rutas['hora_a'])): echo($rutas['hora_a']); endif; ?>"/>
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <label for="hora_p" class="col-sm-2 col-form-label">Hora de Parada</label>
-        <div class="col-sm-10">
-            <input type="time" name="data[hora_p]" class="form-control" value="<?php if (isset($rutas['hora_p'])): echo($rutas['hora_p']); endif; ?>"/>
+        <!-- Campo Parada -->
+        <div class="row mb-3">
+            <label for="parada" class="col-sm-2 col-form-label">Parada</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[parada]" placeholder="Escribe aquí la parada" class="form-control" value="<?php if (isset($rutas['parada'])): echo($rutas['parada']); endif; ?>"/>
+            </div>
         </div>
-    </div>
-    <input type="submit" name="data[enviar]" value="Guardar" class="btn btn-success"/>
-</form>
+        <!-- Campo Hora Parada -->
+        <div class="row mb-3">
+            <label for="hora_p" class="col-sm-2 col-form-label">Hora de Parada</label>
+            <div class="col-sm-10">
+                <input type="time" name="data[hora_p]" class="form-control" value="<?php if (isset($rutas['hora_p'])): echo($rutas['hora_p']); endif; ?>"/>
+            </div>
+        </div>
+        <!-- Boton Enviar -->
+        <div class="d-flex justify-content-center">
+            <input type="submit" name="data[enviar]" value="Guardar" class="btn btn-success"/>
+        </div>
+    </form>
+</div>
+<!-- Formulario termina -->
 <?php require('views/footer.php'); ?>
