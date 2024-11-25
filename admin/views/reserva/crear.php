@@ -26,98 +26,91 @@ if ($esAdmin) {
             <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Reservas</h4>
             <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
                 <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                <li class="breadcrumb-item text-primary"><a href="ruta.php">Reservas</a></li>
+                <li class="breadcrumb-item text-primary"><a href="reserva.php">Reservas</a></li>
                 <li class="breadcrumb-item active text-primary"><?php echo ($accion == "crear") ? "Nueva " : "Modificar "; ?> Reserva</li>
             </ol>    
         </div>
     </div>
 <!-- Header End -->
-
-<form action="reserva.php?accion=<?php echo ($accion == "crear") ? 'nuevo' : 'modificar&id=' . $id; ?>" method="post">
-    <div class="row mb-3">
-        <label for="estado" class="col-sm-2 col-form-label">Estado</label>
-        <div class="col-sm-10">
-            <select class="form-select" name="data[estado]" id="estado">
-                <option value="Pendiente" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Pendiente') ? 'selected' : ''; ?>>Pendiente</option>
-                <?php if ($esAdmin): ?>
-                <option value="Aprobado" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Aprobado') ? 'selected' : ''; ?>>Aprobado</option>
-                <option value="Rechazado" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Rechazado') ? 'selected' : ''; ?>>Rechazado</option>
-                <?php endif; ?>
-            </select>
+<div class="mx-3 my-5">
+    <form action="reserva.php?accion=<?php echo ($accion == "crear") ? 'nuevo' : 'modificar&id=' . $id; ?>" method="post">
+        <div class="row mb-3">
+            <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+            <div class="col-sm-10">
+                <select class="form-select" name="data[estado]" id="estado">
+                    <option value="Pendiente" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Pendiente') ? 'selected' : ''; ?>>Pendiente</option>
+                    <?php if ($esAdmin): ?>
+                    <option value="Aprobado" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Aprobado') ? 'selected' : ''; ?>>Aprobado</option>
+                    <option value="Rechazado" <?php echo (isset($reservas['estado']) && $reservas['estado'] == 'Rechazado') ? 'selected' : ''; ?>>Rechazado</option>
+                    <?php endif; ?>
+                </select>
+            </div>
         </div>
-    </div>
-
-
-    <!-- Fecha de Reserva -->
-    <div class="row mb-3">
-        <label for="fecha_reserva" class="col-sm-2 col-form-label">Fecha Reserva</label>
-        <div class="col-sm-10">
-            <input type="date" name="data[fecha_reserva]" class="form-control" value="<?php echo isset($reservas['fecha_reserva']) ? $reservas['fecha_reserva'] : ''; ?>" />
+        <!-- Fecha de Reserva -->
+        <div class="row mb-3">
+            <label for="fecha_reserva" class="col-sm-2 col-form-label">Fecha Reserva</label>
+            <div class="col-sm-10">
+                <input type="date" name="data[fecha_reserva]" class="form-control" value="<?php echo isset($reservas['fecha_reserva']) ? $reservas['fecha_reserva'] : ''; ?>" />
+            </div>
         </div>
-    </div>
-
-    <!-- Fecha de Salida -->
-    <div class="row mb-3">
-        <label for="fecha_salida" class="col-sm-2 col-form-label">Fecha Salida</label>
-        <div class="col-sm-10">
-            <input type="date" name="data[fecha_salida]" class="form-control" value="<?php echo isset($reservas['fecha_salida']) ? $reservas['fecha_salida'] : ''; ?>" />
+        <!-- Fecha de Salida -->
+        <div class="row mb-3">
+            <label for="fecha_salida" class="col-sm-2 col-form-label">Fecha Salida</label>
+            <div class="col-sm-10">
+                <input type="date" name="data[fecha_salida]" class="form-control" value="<?php echo isset($reservas['fecha_salida']) ? $reservas['fecha_salida'] : ''; ?>" />
+            </div>
         </div>
-    </div>
-
-    <!-- Fecha de Regreso -->
-    <div class="row mb-3">
-        <label for="fecha_regreso" class="col-sm-2 col-form-label">Fecha Regreso</label>
-        <div class="col-sm-10">
-            <input type="date" name="data[fecha_regreso]" class="form-control" value="<?php echo isset($reservas['fecha_regreso']) ? $reservas['fecha_regreso'] : ''; ?>" />
+        <!-- Fecha de Regreso -->
+        <div class="row mb-3">
+            <label for="fecha_regreso" class="col-sm-2 col-form-label">Fecha Regreso</label>
+            <div class="col-sm-10">
+                <input type="date" name="data[fecha_regreso]" class="form-control" value="<?php echo isset($reservas['fecha_regreso']) ? $reservas['fecha_regreso'] : ''; ?>" />
+            </div>
         </div>
-    </div>
-
-    <!-- Origen -->
-    <div class="row mb-3">
-        <label for="origen" class="col-sm-2 col-form-label">Origen</label>
-        <div class="col-sm-10">
-            <select class="form-select" name="data[origen]" id="origen">
-                <option value="Cortazar" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Cortazar') ? 'selected' : ''; ?>>Cortazar</option>
-                <option value="Villagran" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Villagran') ? 'selected' : ''; ?>>Villagran</option>
-                <option value="Celaya" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Celaya') ? 'selected' : ''; ?>>Celaya</option>
-            </select>
+        <!-- Origen -->
+        <div class="row mb-3">
+            <label for="origen" class="col-sm-2 col-form-label">Origen</label>
+            <div class="col-sm-10">
+                <select class="form-select" name="data[origen]" id="origen">
+                    <option value="Cortazar" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Cortazar') ? 'selected' : ''; ?>>Cortazar</option>
+                    <option value="Villagran" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Villagran') ? 'selected' : ''; ?>>Villagran</option>
+                    <option value="Celaya" <?php echo (isset($reservas['origen']) && $reservas['origen'] == 'Celaya') ? 'selected' : ''; ?>>Celaya</option>
+                </select>
+            </div>
         </div>
-    </div>
-
-    <!-- Destino -->
-    <div class="row mb-3">
-        <label for="destino" class="col-sm-2 col-form-label">Destino</label>
-        <div class="col-sm-10">
-            <input type="text" name="data[destino]" class="form-control" value="<?php echo isset($reservas['destino']) ? $reservas['destino'] : ''; ?>" />
+        <!-- Destino -->
+        <div class="row mb-3">
+            <label for="destino" class="col-sm-2 col-form-label">Destino</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[destino]" class="form-control" value="<?php echo isset($reservas['destino']) ? $reservas['destino'] : ''; ?>" />
+            </div>
         </div>
-    </div>
-
-    <!-- Pasajeros -->
-    <div class="row mb-3">
-        <label for="pasajeros" class="col-sm-2 col-form-label">Pasajeros</label>
-        <div class="col-sm-10">
-            <input type="text" name="data[pasajeros]" class="form-control" value="<?php echo isset($reservas['pasajeros']) ? $reservas['pasajeros'] : ''; ?>" />
+        <!-- Pasajeros -->
+        <div class="row mb-3">
+            <label for="pasajeros" class="col-sm-2 col-form-label">Pasajeros</label>
+            <div class="col-sm-10">
+                <input type="text" name="data[pasajeros]" class="form-control" value="<?php echo isset($reservas['pasajeros']) ? $reservas['pasajeros'] : ''; ?>" />
+            </div>
         </div>
-    </div>
-
-    <!-- ID de Usuario (automáticamente asignado desde la sesión) -->
-    <?php if ($esAdmin): ?>
-    <div class="row mb-3">
-        <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
-        <div class="col-sm-10">
-            <select name="data[id_usuario]" id="" class="form-select">
-                <?php foreach($usuarios as $usuario): ?>
-                    <?php $selected = ($reservas['id_usuario'] == $usuario['id_usuario']) ? "selected" : ""; ?>
-                    <option value="<?php echo($usuario['id_usuario']); ?>" <?php echo($selected); ?>><?php echo($usuario['nombre']); ?></option>
-                <?php endforeach; ?>
-            </select>
+        <!-- ID de Usuario (automáticamente asignado desde la sesión) -->
+        <?php if ($esAdmin): ?>
+        <div class="row mb-3">
+            <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+            <div class="col-sm-10">
+                <select name="data[id_usuario]" id="" class="form-select">
+                    <?php foreach($usuarios as $usuario): ?>
+                        <?php $selected = ($reservas['id_usuario'] == $usuario['id_usuario']) ? "selected" : ""; ?>
+                        <option value="<?php echo($usuario['id_usuario']); ?>" <?php echo($selected); ?>><?php echo($usuario['nombre']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
         </div>
-    </div>
-    <?php else: ?>
-        <input type="hidden" name="data[id_usuario]" value="<?php echo $id_usuario; ?>" />
-    <?php endif; ?>
-
-    <input type="submit" name="data[enviar]" value="Guardar" class="btn btn-success" />
-</form>
-
+        <?php else: ?>
+            <input type="hidden" name="data[id_usuario]" value="<?php echo $id_usuario; ?>" />
+        <?php endif; ?>
+        <div class="d-flex justify-content-center">
+            <input type="submit" name="data[enviar]" value="Guardar" class="btn btn-success" />
+        </div>
+    </form>
+</div>
 <?php require('views/footer.php'); ?>

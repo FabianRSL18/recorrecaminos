@@ -48,7 +48,6 @@ if ($esAdmin) {
     </form>
 </div>
 
-
 <!-- Botón 'Nuevo' solo para administradores -->
 <div class="my-5 mx-3">
     <?php if ($esAdmin): ?>

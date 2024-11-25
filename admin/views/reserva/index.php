@@ -31,58 +31,57 @@ if ($esAdmin) {
     </div>
 <!-- Header End -->
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
+<div class="mx-3 my-5">
+    <a href="reserva.php?accion=crear" class="btn btn-success">Nueva Reserva</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- Muestra el ID solo para administradores -->
+                <?php if ($esAdmin): ?>
+                    <th scope="col">Id</th>
+                <?php endif; ?>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha Reserva</th>
+                <th scope="col">Fecha Salida</th>
+                <th scope="col">Fecha Regreso</th>
+                <th scope="col">Origen</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Pasajeros</th>
+                <?php if ($esAdmin): ?>
+                    <th scope="col">Cliente</th>
+                <?php endif; ?>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($reservas as $reserva): ?>
+            <tr>
+                <!-- Muestra el ID solo para administradores -->
+                <?php if ($esAdmin): ?>
+                    <th scope="row"><?php echo $reserva['id_reserva']; ?></th>
+                <?php endif; ?>
+                <td><?php echo $reserva['estado']; ?></td>
+                <td><?php echo (new DateTime($reserva['fecha_reserva']))->format('Y-m-d'); ?></td>
+                <td><?php echo $reserva['fecha_salida']; ?></td>
+                <td><?php echo $reserva['fecha_regreso']; ?></td>
+                <td><?php echo $reserva['origen']; ?></td>
+                <td><?php echo $reserva['destino']; ?></td>
+                <td><?php echo $reserva['pasajeros']; ?></td>
+                <?php if ($esAdmin): ?>
+                    <td><?php echo $reserva['correo']; ?></td>
+                <?php endif; ?>
+                <!-- Opciones solo para administradores -->
+                
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <a href="reserva.php?accion=actualizar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-primary">Actualizar</a>
+                            <a href="reserva.php?accion=eliminar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </td>
 
-<a href="reserva.php?accion=crear" class="btn btn-success">Nueva Reserva</a>
-
-<table class="table">
-    <thead>
-        <tr>
-            <!-- Muestra el ID solo para administradores -->
-            <?php if ($esAdmin): ?>
-                <th scope="col">Id</th>
-            <?php endif; ?>
-            <th scope="col">Estado</th>
-            <th scope="col">Fecha Reserva</th>
-            <th scope="col">Fecha Salida</th>
-            <th scope="col">Fecha Regreso</th>
-            <th scope="col">Origen</th>
-            <th scope="col">Destino</th>
-            <th scope="col">Pasajeros</th>
-            <?php if ($esAdmin): ?>
-                <th scope="col">Cliente</th>
-            <?php endif; ?>
-            <th scope="col">Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($reservas as $reserva): ?>
-        <tr>
-            <!-- Muestra el ID solo para administradores -->
-            <?php if ($esAdmin): ?>
-                <th scope="row"><?php echo $reserva['id_reserva']; ?></th>
-            <?php endif; ?>
-            <td><?php echo $reserva['estado']; ?></td>
-            <td><?php echo (new DateTime($reserva['fecha_reserva']))->format('Y-m-d'); ?></td>
-            <td><?php echo $reserva['fecha_salida']; ?></td>
-            <td><?php echo $reserva['fecha_regreso']; ?></td>
-            <td><?php echo $reserva['origen']; ?></td>
-            <td><?php echo $reserva['destino']; ?></td>
-            <td><?php echo $reserva['pasajeros']; ?></td>
-            <?php if ($esAdmin): ?>
-                <td><?php echo $reserva['correo']; ?></td>
-            <?php endif; ?>
-            <!-- Opciones solo para administradores -->
-            
-                <td>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <a href="reserva.php?accion=actualizar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-primary">Actualizar</a>
-                        <a href="reserva.php?accion=eliminar&id=<?php echo $reserva['id_reserva']; ?>" class="btn btn-danger">Eliminar</a>
-                    </div>
-                </td>
-
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 <?php require('views/footer.php'); ?>

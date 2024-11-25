@@ -11,28 +11,30 @@
     </div>
 <!-- Header End -->
 <?php if (isset($mensaje)) : $app->alert($tipo, $mensaje); endif; ?>
-<a href="roles.php?accion=crear" class="btn btn-success">Nuevo Rol</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre del Rol</th>
-            <th scope="col">Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($roles as $rol) : ?>
-        <tr>
-            <th scope="row"><?php echo $rol['id_rol']; ?></th>
-            <td><?php echo $rol['rol']; ?></td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="roles.php?accion=actualizar&id=<?php echo $rol['id_rol']; ?>" class="btn btn-primary">Actualizar</a>
-                    <a href="roles.php?accion=eliminar&id=<?php echo $rol['id_rol']; ?>" class="btn btn-danger">Eliminar</a>
-                </div>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+<div class="mx-3 my-5">
+    <a href="roles.php?accion=crear" class="btn btn-success">Nuevo Rol</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre del Rol</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($roles as $rol) : ?>
+            <tr>
+                <th scope="row"><?php echo $rol['id_rol']; ?></th>
+                <td><?php echo $rol['rol']; ?></td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="roles.php?accion=actualizar&id=<?php echo $rol['id_rol']; ?>" class="btn btn-primary">Actualizar</a>
+                        <a href="roles.php?accion=eliminar&id=<?php echo $rol['id_rol']; ?>" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 <?php require('views/footer.php'); ?>
