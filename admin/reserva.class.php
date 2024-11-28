@@ -4,8 +4,8 @@ class Reserva extends Sistema{
     function create($data) {
         $result = [];
         $this->conexion();
-        $sql = "INSERT INTO reserva (estado, fecha_reserva, fecha_salida, fecha_regreso,origen, destino, pasajeros, id_usuario) 
-                VALUES (:estado, :fecha_reserva, :fecha_salida, :fecha_regreso, :origen, :destino, :pasajeros, :id_usuario);";
+        $sql = "INSERT INTO reserva (estado, fecha_reserva, fecha_salida, fecha_regreso, origen, destino, latitud, longitud, pasajeros, id_usuario) 
+                VALUES (:estado, :fecha_reserva, :fecha_salida, :fecha_regreso, :origen, :destino, :latitud, :longitud, :pasajeros, :id_usuario);";
         $insertar = $this->con->prepare($sql);
         $insertar->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
         $insertar->bindParam(':fecha_reserva', $data['fecha_reserva'], PDO::PARAM_STR);
@@ -13,6 +13,8 @@ class Reserva extends Sistema{
         $insertar->bindParam(':fecha_regreso', $data['fecha_regreso'], PDO::PARAM_STR);
         $insertar->bindParam(':origen', $data['origen'], PDO::PARAM_STR);
         $insertar->bindParam(':destino', $data['destino'], PDO::PARAM_STR);
+        $insertar->bindParam(':latitud', $data['latitud'], PDO::PARAM_STR); // Nueva columna
+        $insertar->bindParam(':longitud', $data['longitud'], PDO::PARAM_STR); // Nueva columna
         $insertar->bindParam(':pasajeros', $data['pasajeros'], PDO::PARAM_INT);
         $insertar->bindParam(':id_usuario', $data['id_usuario'], PDO::PARAM_INT);
         $insertar->execute();
@@ -20,10 +22,11 @@ class Reserva extends Sistema{
         return $result;
     }
     
+    
     function update($id, $data) {
         $this->conexion();
         $result = [];
-        $sql = "UPDATE reserva SET estado = :estado, fecha_reserva = :fecha_reserva, fecha_salida = :fecha_salida, fecha_regreso = :fecha_regreso, origen = :origen, destino = :destino, pasajeros = :pasajeros, id_usuario = :id_usuario WHERE id_reserva = :id_reserva;";
+        $sql = "UPDATE reserva SET estado = :estado, fecha_reserva = :fecha_reserva, fecha_salida = :fecha_salida, fecha_regreso = :fecha_regreso, origen = :origen, destino = :destino, latitud = :latitud, longitud = :longitud, pasajeros = :pasajeros, id_usuario = :id_usuario WHERE id_reserva = :id_reserva;";
         $modificar = $this->con->prepare($sql);
         $modificar->bindParam(':id_reserva', $id, PDO::PARAM_INT);
         $modificar->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
@@ -32,6 +35,8 @@ class Reserva extends Sistema{
         $modificar->bindParam(':fecha_regreso', $data['fecha_regreso'], PDO::PARAM_STR);
         $modificar->bindParam(':origen', $data['origen'], PDO::PARAM_STR);
         $modificar->bindParam(':destino', $data['destino'], PDO::PARAM_STR);
+        $modificar->bindParam(':latitud', $data['latitud'], PDO::PARAM_STR); // Nueva columna
+        $modificar->bindParam(':longitud', $data['longitud'], PDO::PARAM_STR); // Nueva columna
         $modificar->bindParam(':pasajeros', $data['pasajeros'], PDO::PARAM_INT);
         $modificar->bindParam(':id_usuario', $data['id_usuario'], PDO::PARAM_INT);
         $modificar->execute();
