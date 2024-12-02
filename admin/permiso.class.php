@@ -4,8 +4,7 @@ require_once('../sistema.class.php');
 class Permiso extends Sistema {
     function create($data) {
         $this->conexion();
-        $sql = "INSERT INTO permiso (permiso) 
-                VALUES (:permiso);";
+        $sql = "INSERT INTO permiso (permiso) VALUES (:permiso);";
         $insertar = $this->con->prepare($sql);
         $insertar->bindParam(':permiso', $data['permiso'], PDO::PARAM_STR);
         $insertar->execute();
