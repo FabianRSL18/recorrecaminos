@@ -25,7 +25,7 @@
             <button type="submit" value="entrar al sistema" name="enviar" class="btn btn-primary w-100">Iniciar Sesión</button>
             </form>
             <div class="text-center">
-                <p>¿No tienes cuenta?<a class="text-decoration-none ms-2" href="usuario.php?accion=crear">Registrate</a></p>
+                <p><label>¿No tienes cuenta?</label><a class="text-decoration-none ms-2" href="usuario.php?accion=crear">Registrate</a></p>
             </div>
         </div>
         </div>

@@ -9,8 +9,7 @@ class Usuario extends Sistema {
         $this->con->beginTransaction();
         try {
             // Inserción de datos en la tabla usuario con los nuevos campos
-            $sql = "INSERT INTO usuario (correo, contrasena, nombre, primer_apellido, segundo_apellido, telefono) 
-                    VALUES (:correo, :contrasena, :nombre, :primer_apellido, :segundo_apellido, :telefono)";
+            $sql = "INSERT INTO usuario (correo, contrasena, nombre, primer_apellido, segundo_apellido, telefono, direccion) VALUES (:correo, :contrasena, :nombre, :primer_apellido, :segundo_apellido, :telefono, :direccion)";
             $insertar = $this->con->prepare($sql);
             $data['contrasena'] = md5($data['contrasena']); 
             $insertar->bindParam(':correo', $data['correo'], PDO::PARAM_STR);
@@ -19,6 +18,7 @@ class Usuario extends Sistema {
             $insertar->bindParam(':primer_apellido', $data['primer_apellido'], PDO::PARAM_STR);
             $insertar->bindParam(':segundo_apellido', $data['segundo_apellido'], PDO::PARAM_STR);
             $insertar->bindParam(':telefono', $data['telefono'], PDO::PARAM_STR);
+            $insertar->bindParam(':direccion', $data['direccion'], PDO::PARAM_STR);
             $insertar->execute();
 
             // Obtener el id_usuario para insertar en la tabla de relaciones de roles
@@ -55,7 +55,7 @@ class Usuario extends Sistema {
         try {
             // Actualización de datos en la tabla usuario con los nuevos campos
             $sql = "UPDATE usuario SET correo = :correo, contrasena = :contrasena, nombre = :nombre, 
-                    primer_apellido = :primer_apellido, segundo_apellido = :segundo_apellido, telefono = :telefono 
+                    primer_apellido = :primer_apellido, segundo_apellido = :segundo_apellido, telefono = :telefono, direccion = :direccion 
                     WHERE id_usuario = :id_usuario";
             $modificar = $this->con->prepare($sql);
             $data['contrasena'] = md5($data['contrasena']);
@@ -66,6 +66,7 @@ class Usuario extends Sistema {
             $modificar->bindParam(':primer_apellido', $data['primer_apellido'], PDO::PARAM_STR);
             $modificar->bindParam(':segundo_apellido', $data['segundo_apellido'], PDO::PARAM_STR);
             $modificar->bindParam(':telefono', $data['telefono'], PDO::PARAM_STR);
+            $modificar->bindParam(':direccion', $data['direccion'], PDO::PARAM_STR);
             $modificar->execute();
 
             // Borrar y volver a insertar los roles

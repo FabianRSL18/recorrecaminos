@@ -1,6 +1,6 @@
 <?php
 // Clave de API (reemplaza con tu clave real)
-$googleMapsApiKey = "AIzaSyCe1d7MWxY28izsGaB6QBcjDQTFgJ59ydM";
+$googleMapsApiKey = "prueba";
 ?>
 <!DOCTYPE html>
 <html lang="en">

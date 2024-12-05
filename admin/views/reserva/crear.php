@@ -18,7 +18,7 @@ if ($esAdmin) {
     // Si no es ni Administrador ni Cliente, se puede cargar un header por defecto
     require_once('views/header.php');
 }
-$googleMapsApiKey = "AIzaSyCe1d7MWxY28izsGaB6QBcjDQTFgJ59ydM";
+$googleMapsApiKey = "prueba";
 
 ?>
 
